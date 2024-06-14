@@ -16,16 +16,14 @@ const AJAX = () => {
             const items = result.response.body.items;
             const root = document.getElementById('root');
             const main = document.createElement("main");
+            const itemArr = [];
             items.forEach((element) => {
-                let arr = Object.entries(element);
-                const div = document.createElement("div");
-                div.innerHTML = arr.slice(1, 4);
-                console.log(Object.entries(element));
-                // console.log(div)
-                main.appendChild(div);
+                itemArr.push(Object.entries(element));
             });
+            const div = document.createElement("div");
+            div.innerHTML = itemArr.toString();
+            main.appendChild(div);
             root.appendChild(main);
-            // console.log(items)
         }
     };
     xhr.send();

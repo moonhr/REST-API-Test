@@ -23,14 +23,19 @@ const AJAX = () => {
 
       const root = document.getElementById('root')!;
       const main = document.createElement("main");
+
+      const itemArr : object[] = [];
+
       items.forEach((element) => {
-        let arr = Object.entries(element)
-        const div = document.createElement("div")
-        div.innerHTML = arr.slice(1,4)
-        console.log(Object.entries(element))
-        // console.log(div)
-        main.appendChild(div)
+        itemArr.push(Object.entries(element))
       });
+
+      const div = document.createElement("div")
+      div.innerHTML = itemArr.toString()
+      
+      console.log(itemArr)
+
+      main.appendChild(div)
       root.appendChild(main)
       
     }
