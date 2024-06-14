@@ -7,16 +7,27 @@ const AJAX = () => {
     const xhr = new XMLHttpRequest();
     console.log(xhr);
     xhr.open('GET', url, true);
-    xhr.send();
     xhr.onload = () => {
         if (xhr.status === 200) {
             console.log("데이터 받은 후 조회");
-            //* 얘 왜 안돼?
             const result = JSON.parse(xhr.responseText);
-            //* 얘 왜 돼?
-            // const result = new DOMParser().parseFromString(xhr.responseText, 'text/xml')
-            console.log(result);
+            console.log(result.response.body.items);
+            //items 타입 선언 해야함
+            const items = result.response.body.items;
+            const root = document.getElementById('root');
+            const main = document.createElement("main");
+            items.forEach((element) => {
+                let arr = Object.entries(element);
+                const div = document.createElement("div");
+                div.innerHTML = arr.slice(1, 4);
+                console.log(Object.entries(element));
+                // console.log(div)
+                main.appendChild(div);
+            });
+            root.appendChild(main);
+            // console.log(items)
         }
     };
+    xhr.send();
 };
 AJAX();

@@ -4,23 +4,38 @@ const keyName = `SP6poFNj53tVrUmPFA7YiAuohTBnOXQ%2BUE4J6uq0ItPV49i%2Bu2%2FVXlNUn
 
 const url = `${endpoint}/getkickBoard?serviceKey=${keyName}&pageNo=1&numOfRows=1000`;
 
-
 console.log(url);
 
 const AJAX = () => {
   const xhr = new XMLHttpRequest()
   console.log(xhr);
   xhr.open('GET', url, true)
-  
-  xhr.send();
 
   xhr.onload = () => {
     if (xhr.status === 200) {
       console.log("데이터 받은 후 조회")
-    
+
       const result = JSON.parse(xhr.responseText)
-      console.log(result)
+      console.log(result.response.body.items)
+
+      //items 타입 선언 해야함
+      const items : string[] = result.response.body.items
+
+      const root = document.getElementById('root')!;
+      const main = document.createElement("main");
+      items.forEach((element) => {
+        let arr = Object.entries(element)
+        const div = document.createElement("div")
+        div.innerHTML = arr.slice(1,4)
+        console.log(Object.entries(element))
+        // console.log(div)
+        main.appendChild(div)
+      });
+      root.appendChild(main)
+      
     }
   }
+
+  xhr.send();
 }
 AJAX();
