@@ -1,0 +1,17 @@
+{
+  "name": "rest-api-test",
+  "version": "1.0.0",
+  "description": "rest api를 test하기 위함",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "typescript": "^5.4.5"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.2"
+  }
+}

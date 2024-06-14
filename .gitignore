@@ -1,0 +1,4 @@
+#node_modules 저장 안함
+[folder name]/
+node_modules
+
