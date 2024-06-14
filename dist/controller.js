@@ -1,8 +1,11 @@
-"use strict";
-const endpoint = `http://apis.data.go.kr/6300000/kickBoard`;
-const keyName = `SP6poFNj53tVrUmPFA7YiAuohTBnOXQ%2BUE4J6uq0ItPV49i%2Bu2%2FVXlNUnq5v3WumEyZthjVOj9wG%2FotkQW%2F5kg%3D%3D`;
-const url = `${endpoint}/getkickBoard?serviceKey=${keyName}&pageNo=1&numOfRows=1000`;
+import { url } from "./url";
 console.log(url);
+const root = document.getElementById('root');
+const main = document.createElement("main");
+root.appendChild(main);
+const button = document.createElement("button");
+button.textContent = "대전광역시 전동킥보드 주차장";
+main.appendChild(button);
 const AJAX = () => {
     const xhr = new XMLHttpRequest();
     console.log(xhr);
@@ -14,8 +17,6 @@ const AJAX = () => {
             console.log(result.response.body.items);
             //items 타입 선언 해야함
             const items = result.response.body.items;
-            const root = document.getElementById('root');
-            const main = document.createElement("main");
             const itemArr = [];
             const itemKey = [];
             const ul = document.createElement("ul");
@@ -31,14 +32,9 @@ const AJAX = () => {
             });
             const div = document.createElement("div");
             div.appendChild(ul);
-            // console.log(itemKey);
-            //console.log(itemValue);
-            // div.innerHTML = itemValue.toString();
-            // console.log(itemArr.toLocaleString())
             main.appendChild(div);
-            root.appendChild(main);
         }
     };
     xhr.send();
 };
-AJAX();
+button.addEventListener('click', AJAX);
