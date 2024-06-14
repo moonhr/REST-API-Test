@@ -1,6 +1,4 @@
-import {url} from "./url"
-
-console.log(url);
+import {url} from "./url.js"
 
 const root = document.getElementById('root')!;
 const main = document.createElement("main");
