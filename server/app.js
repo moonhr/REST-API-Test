@@ -43,11 +43,11 @@ const fileUtils = {
   //*매개변수 url에 따른 파일 경로 할당
   getFilePath: function (url) {
     if (url === "/") {
-      return path.join(__dirname, "./public/index.html");
+      return path.join(__dirname, "../public/index.html");
     } else if (url.startsWith === "/dist") {
-      return path.join(__dirname, `./dist/${url}`)
+      return path.join(__dirname, `../dist/${url}`)
     } else {
-      return path.join(__dirname, `./${url}`);
+      return path.join(__dirname, `../${url}`);
     }
   },
   //*파일 경로에 따른 파일 확장자 가져오기
