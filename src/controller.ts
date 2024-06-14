@@ -25,15 +25,22 @@ const AJAX = () => {
       const main = document.createElement("main");
 
       const itemArr : object[] = [];
+      const itemKey : object[] = [];
+      const itemValue : object[] = [];
 
-      items.forEach((element) => {
+      items.forEach((element : string) => {
         itemArr.push(Object.entries(element))
+        // console.log(element)
+        itemKey.push(Object.keys(element))
+        itemValue.push(Object.values(element))
       });
+      console.log(itemKey)
+      console.log(itemValue)
 
       const div = document.createElement("div")
       div.innerHTML = itemArr.toString()
       
-      console.log(itemArr)
+      // console.log(itemArr.toLocaleString())
 
       main.appendChild(div)
       root.appendChild(main)

@@ -17,11 +17,19 @@ const AJAX = () => {
             const root = document.getElementById('root');
             const main = document.createElement("main");
             const itemArr = [];
+            const itemKey = [];
+            const itemValue = [];
             items.forEach((element) => {
                 itemArr.push(Object.entries(element));
+                // console.log(element)
+                itemKey.push(Object.keys(element));
+                itemValue.push(Object.values(element));
             });
+            console.log(itemKey);
+            console.log(itemValue);
             const div = document.createElement("div");
             div.innerHTML = itemArr.toString();
+            // console.log(itemArr.toLocaleString())
             main.appendChild(div);
             root.appendChild(main);
         }
