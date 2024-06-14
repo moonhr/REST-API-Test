@@ -4,7 +4,6 @@
  * @param ul 
  */
 export const MakeLi = (arr: string[], ul: HTMLUListElement) => {
-
   arr.forEach((element: string) => {
     const itemValue: object[] = [];
     const li = document.createElement("li");

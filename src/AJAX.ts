@@ -1,12 +1,11 @@
 import {url} from "./url.js"
 import {MakeLi} from "./MakeLi.js"
 
-const main = document.createElement("main");
-
 /**
  * * ajax
  */
 export const AJAX = () => {
+  const main = document.getElementById("main")!;
   const xhr = new XMLHttpRequest()
   console.log(xhr);
   xhr.open('GET', url, true)
@@ -24,6 +23,8 @@ export const AJAX = () => {
       MakeLi(items, ul);
 
       const div = document.createElement("div");
+
+      console.log("2")
       div.appendChild(ul);
       main.appendChild(div);
     }
