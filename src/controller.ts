@@ -26,24 +26,34 @@ const AJAX = () => {
 
       const itemArr : object[] = [];
       const itemKey : object[] = [];
-      const itemValue : object[] = [];
+      
+      const ul = document.createElement("ul")
 
       items.forEach((element : string) => {
-        itemArr.push(Object.entries(element))
-        // console.log(element)
-        itemKey.push(Object.keys(element))
-        itemValue.push(Object.values(element))
-      });
-      console.log(itemKey)
-      console.log(itemValue)
+        const itemValue : object[] = [];
+        const li = document.createElement("li");
 
-      const div = document.createElement("div")
-      div.innerHTML = itemArr.toString()
+        itemArr.push(Object.entries(element));
+        // console.log(element)
+        itemKey.push(Object.keys(element));
+        itemValue.push(Object.values(element));
+
+        li.textContent = itemValue.toLocaleString();
+        ul.appendChild(li);
+      });
+      const div = document.createElement("div");
+
+      div.appendChild(ul);
+
+      // console.log(itemKey);
+      //console.log(itemValue);
+
+      // div.innerHTML = itemValue.toString();
       
       // console.log(itemArr.toLocaleString())
 
-      main.appendChild(div)
-      root.appendChild(main)
+      main.appendChild(div);
+      root.appendChild(main);
       
     }
   }

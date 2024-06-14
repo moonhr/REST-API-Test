@@ -18,17 +18,22 @@ const AJAX = () => {
             const main = document.createElement("main");
             const itemArr = [];
             const itemKey = [];
-            const itemValue = [];
+            const ul = document.createElement("ul");
             items.forEach((element) => {
+                const itemValue = [];
+                const li = document.createElement("li");
                 itemArr.push(Object.entries(element));
                 // console.log(element)
                 itemKey.push(Object.keys(element));
                 itemValue.push(Object.values(element));
+                li.textContent = itemValue.toLocaleString();
+                ul.appendChild(li);
             });
-            console.log(itemKey);
-            console.log(itemValue);
             const div = document.createElement("div");
-            div.innerHTML = itemArr.toString();
+            div.appendChild(ul);
+            // console.log(itemKey);
+            //console.log(itemValue);
+            // div.innerHTML = itemValue.toString();
             // console.log(itemArr.toLocaleString())
             main.appendChild(div);
             root.appendChild(main);
