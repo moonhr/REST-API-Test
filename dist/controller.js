@@ -1,5 +1,5 @@
 import { url } from "./url.js";
-console.log(url);
+import { MakeLi } from "./MakeLi.js";
 const root = document.getElementById('root');
 const main = document.createElement("main");
 root.appendChild(main);
@@ -17,19 +17,8 @@ const AJAX = () => {
             console.log(result.response.body.items);
             //items 타입 선언 해야함
             const items = result.response.body.items;
-            const itemArr = [];
-            const itemKey = [];
             const ul = document.createElement("ul");
-            items.forEach((element) => {
-                const itemValue = [];
-                const li = document.createElement("li");
-                itemArr.push(Object.entries(element));
-                // console.log(element)
-                itemKey.push(Object.keys(element));
-                itemValue.push(Object.values(element));
-                li.textContent = itemValue.toLocaleString();
-                ul.appendChild(li);
-            });
+            MakeLi(items, ul);
             const div = document.createElement("div");
             div.appendChild(ul);
             main.appendChild(div);
